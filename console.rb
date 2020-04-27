@@ -5,7 +5,8 @@ require_relative('models/vet')
 vet1 = Vet.new({'name' => 'Sara Smith', 'age' => 35, 'qualifications' => 'Doctor of Veterinary Medicine', 'registered_animals' => 0})
 vet1.save
 
-
+animal1 = Animal.new({'name' => 'Eric', 'date_of_birth' => '2016', 'type' => 'dog', 'owner_name' => 'Paulo', 'notes' => 'Goodest boy'})
+animal1.save()
 
 
 
