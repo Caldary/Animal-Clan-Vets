@@ -19,10 +19,12 @@ animal1 = Animal.new({'name' => 'Eric', 'date_of_birth' => '2016', 'type' => 'do
 animal2 = Animal.new({'name' => 'Tom', 'date_of_birth' => '2013', 'type' => 'cat', 'owner_name' => 'MGM', 'notes' => 'Evil cat', 'vet_id' => vet2.id})
 animal3 = Animal.new({'name' => 'Jerry', 'date_of_birth' => '2015', 'type' => 'mouse', 'owner_name' => 'Warner Bros', 'notes' => 'Naughty mouse', 'vet_id' => vet3.id})
 animal4 = Animal.new({'name' => 'Donald', 'date_of_birth' => '2019', 'type' => 'duck', 'owner_name' => 'Disney', 'notes' => 'He can talk', 'vet_id' => vet4.id})
+animal5 = Animal.new({'name' => 'Liger', 'date_of_birth' => '2019', 'type' => 'tiger', 'owner_name' => 'Joe Exotic', 'notes' => 'tiger saw man', 'vet_id' => vet1.id})
 animal1.save()
 animal2.save()
 animal3.save()
 animal4.save()
+animal5.save()
 
 
 
