@@ -23,6 +23,47 @@ class Vet
         results = SqlRunner.run(sql, values).first
         @id = results['id'].to_i
     end
+
+    def update()
+        sql = "UPDATE vets SET
+        (name, age, qualifications, registered_animals)
+        =
+        ($1, $2, $3, $4)
+        WHERE id = $5"
+        values = [@name, @age, @qualifications, @registered_animals, @id]
+        SqlRunner.run(sql, values)
+    end
+
+    def delete()
+        sql = "DELETE FROM vets
+        WHERE id = $1"
+        values = [@id]
+        SqlRunner.run(sql, values)
+    end
+
+    def self.delete_all()
+        sql = "DELETE FROM vets"
+        SqlRunner.run(sql)
+    end
+
+    def self.all()
+        sql = "SELECT * FROM vets"
+        vets = SqlRunner.run(sql)
+        results = map_items(vets)
+        return results
+    end
+
+    def self.find(id)
+        sql = "SELECT * FROM vets
+        WHERE id = $1"
+        values = [id]
+        result = SqlRunner.run(sql, values).first
+        vet = Vet.new(result)
+        return vet
+    end
     
+    def self.map_items(vets)
+        return vets.map { |vet| Vet.new(vet)}
+    end
 end
 
