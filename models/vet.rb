@@ -4,34 +4,33 @@ require_relative('animal')
 class Vet
 
     attr_reader :id
-    attr_accessor :name, :age, :qualifications, :registered_animals
+    attr_accessor :name, :age, :qualifications
 
     def initialize(options)
         @id = options['id'].to_i if options[:id]
         @name = options['name']
         @age = options['age'].to_i
         @qualifications = options['qualifications']
-        @registered_animals = options['registered_animals'].to_i
     end
 
     def save()
         sql = "INSERT INTO vets
-        (name, age, qualifications, registered_animals)
+        (name, age, qualifications)
         VALUES
-        ($1, $2, $3, $4)
+        ($1, $2, $3)
         RETURNING *"
-        values = [@name, @age, @qualifications, @registered_animals]
+        values = [@name, @age, @qualifications]
         results = SqlRunner.run(sql, values).first
         @id = results['id'].to_i
     end
 
     def update()
         sql = "UPDATE vets SET
-        (name, age, qualifications, registered_animals)
+        (name, age, qualifications)
         =
-        ($1, $2, $3, $4)
-        WHERE id = $5"
-        values = [@name, @age, @qualifications, @registered_animals, @id]
+        ($1, $2, $3)
+        WHERE id = $4"
+        values = [@name, @age, @qualifications, @id]
         SqlRunner.run(sql, values)
     end
 
@@ -40,14 +39,6 @@ class Vet
         WHERE id = $1"
         values = [@id]
         SqlRunner.run(sql, values)
-    end
-
-    def animal()
-        sql = "SELECT * FROM animals WHERE id = $1"
-        values = [@registered_animals]
-        result = SqlRunner.run(sql, values)
-        animal = result.first()
-        return Animal.new(animal)
     end
 
     def self.delete_all()
