@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('animal')
 
 class Vet
 
@@ -39,6 +40,14 @@ class Vet
         WHERE id = $1"
         values = [@id]
         SqlRunner.run(sql, values)
+    end
+
+    def animal()
+        sql = "SELECT * FROM animals WHERE id = $1"
+        values = [@registered_animals]
+        result = SqlRunner.run(sql, values)
+        animal = result.first()
+        return Animal.new(animal)
     end
 
     def self.delete_all()
