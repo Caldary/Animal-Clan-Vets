@@ -1,0 +1,12 @@
+<h1>Animals</h1>
+
+<% for animal in @animals %>
+    <p>Name: <%= animal.name %></p>
+    <p>Dob: <%= animal.date_of_birth %></p>
+    <p>Type: <%= animal.type %></p>
+    <p>Owner: <%= animal.owner_name %></p>
+    <p>Notes: <%= animal.notes %></p>
+    <p>Vet: <%= animal.vet_id %></p>
+    <p><a href="/animals/<%= animal.vet_id %>">Show Vet</a></p>
+    <hr/>
+<% end %>
