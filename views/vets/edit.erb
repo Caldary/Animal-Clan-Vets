@@ -1,0 +1,15 @@
+<h1>Edit Vet:<%= @vet.id %></h1>
+
+<form method="POST" action="/vets/<%= @vet.id %>">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= @vet.name %>"/>
+
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age" value="<%= @vet.age %>"/>
+
+    <label for="qualifications">Qualifications:</label>
+    <input type="text" name="qualifications" id="qualifications" value="<%= @vet.qualifications %>"/>
+
+    <input type="submit" value="Edit Vet">
+</form>
