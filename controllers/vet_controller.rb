@@ -26,6 +26,6 @@ post '/vets' do
 end
 
 post '/vets/:id/delete' do
-    Vet.destroy(params[:id])
+    Vet.find(params[:id]).delete
     redirect to('/vets')
 end
