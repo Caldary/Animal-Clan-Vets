@@ -26,3 +26,8 @@ post '/animals' do
     redirect to '/animals'
 end
 
+post '/animals/:id/delete' do
+    Animal.find(params[:id]).delete
+    redirect to('/animals')
+end
+
