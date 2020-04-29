@@ -12,6 +12,7 @@ end
 
 get '/animals/new' do
     @vets = Vet.all
+    @animals = Animal.all
     erb(:"animals/new")
 end
 

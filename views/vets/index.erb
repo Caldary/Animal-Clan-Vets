@@ -5,5 +5,9 @@
     <p>Name: <%= vet.name %></p>
     <p>Age: <%= vet.age %></p>
     <p>Qualifications: <%= vet.qualifications %></p>
+    <p><li><a href="/vets/1">Details</a></li></p>
+    <form action="/vets/:id/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
     <hr/>
 <% end %>
