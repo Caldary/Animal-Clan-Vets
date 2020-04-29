@@ -1,0 +1,21 @@
+<h1>Edit Animal:<%= @animal.id %></h1>
+
+<form method="POST" action="/animals/<%= @animal.id %>">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= @animal.name %>"/>
+
+    <label for="date_of_birth">Dob:</label>
+    <input type="text" name="date_of_birth" id="date_of_birth" value="<%= @animal.date_of_birth %>"/>
+
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type" value="<%= @animal.type %>"/>
+
+    <label for="owner_name">Owner:</label>
+    <input type="text" name="owner_name" id="owner_name" value="<%= @animal.owner_name %>"/>
+
+    <label for="notes">Notes:</label>
+    <input type="text" name="notes" id="notes" value="<%= @animal.notes %>"/>
+
+    <input type="submit" value="Edit Animal">
+</form>

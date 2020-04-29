@@ -8,6 +8,7 @@
     <p>Owner: <%= animal.owner_name %></p>
     <p>Notes: <%= animal.notes %></p>
     <p>Vet: <%= animal.vet_id %></p>
+    <p><li><a href="/animals/<%= animal.id %>/edit">Edit</a></li></p>
     <p><li><a href="/animals/<%= animal.id %>">Details</a></li></p>
     <form action="/animals/<%= animal.id %>/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
