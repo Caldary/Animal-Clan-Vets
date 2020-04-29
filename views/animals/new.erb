@@ -1,0 +1,29 @@
+<h2>Register Animal</h2>
+
+<form method="POST" action="/animals">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name"/>
+
+    <label for="date_of_birth">Date of birth:</label>
+    <input type="text" name="date_of_birth" id="date_of_birth"/>
+
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type"/>
+
+    <label for="owner">Owner_details:</label>
+    <input type="text" name="owner" id="owner"/>
+
+    <label for="notes">Notes:</label>
+    <input type="text" name="notes" id="notes"/>
+
+    <label for="assign_vet">Assign Vet:</label>
+    <select name="vet_id" id="assign_vet">
+        <% @vets.each do |vet| %>
+            <option value=<%= vet.id %>><%= vet.name %></option>
+        <%end%>
+        </select>
+    <input type="submit" value="Register Animal"/>
+
+</form>
+

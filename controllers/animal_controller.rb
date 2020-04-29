@@ -9,3 +9,14 @@ get '/animals' do
     @animals = Animal.all()
     erb( :"animals/index" )
 end
+
+get '/animals/new' do
+    @vets = Vet.all
+    erb(:"animals/new")
+end
+
+post '/animals' do
+    Animal.new(params).save
+    redirect to '/animals'
+end
+
