@@ -7,7 +7,7 @@ class Animal
     attr_accessor :name, :date_of_birth, :type, :owner_name, :notes, :vet_id
 
     def initialize(options)
-        @id = options['id'].to_i if options [:id]
+        @id = options['id'].to_i if options ['id']
         @name = options['name']
         @date_of_birth = options['date_of_birth']
         @type = options['type']
@@ -23,8 +23,8 @@ class Animal
         ($1, $2, $3, $4, $5, $6)
         RETURNING *"
         values = [@name, @date_of_birth, @type, @owner_name, @notes, @vet_id]
-        results = SqlRunner.run(sql, values).first
-        @id = results['id'].to_i
+        results = SqlRunner.run(sql, values)
+        @id = results.first()['id'].to_i
     end
 
     def update()
@@ -60,7 +60,7 @@ class Animal
     def self.all()
         sql = "SELECT * FROM animals"
         animals = SqlRunner.run(sql)
-        results = animals.map { |animal| Animal.new(animal)}
+        results = map_items(animals)
         return results
     end
 
@@ -69,12 +69,12 @@ class Animal
         WHERE id = $1"
         values = [id]
         result = SqlRunner.run(sql, values).first
-        animal = Vet.new(result)
+        animal = Animal.new(result)
         return animal
     end
     
     def self.map_items(animals)
-        return animals.map { |animal| Vet.new(animal)}
+        return animals.map { |animal| Animal.new(animal)}
     end
 
 

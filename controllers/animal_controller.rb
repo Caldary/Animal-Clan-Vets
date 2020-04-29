@@ -16,6 +16,11 @@ get '/animals/new' do
     erb(:"animals/new")
 end
 
+get '/animals/:id' do
+    @animal = Animal.find(params['id'].to_i)
+    erb(:"animals/show")
+end
+
 post '/animals' do
     Animal.new(params).save
     redirect to '/animals'
