@@ -17,5 +17,11 @@
     <label for="notes">Notes:</label>
     <input type="text" name="notes" id="notes" value="<%= @animal.notes %>"/>
 
+    <label for="assign_vet">Assign Vet:</label>
+    <select name="vet_id" id="assign_vet">
+        <% @vets.each do |vet| %>
+            <option value=<%= vet.id %>><%= vet.name %></option>
+        <%end%>
+        </select>
     <input type="submit" value="Edit Animal">
 </form>
